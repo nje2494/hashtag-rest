@@ -1,0 +1,1891 @@
+openapi: 3.0.0
+info:
+  title: Hashtag Protocol Rest API
+  version: 1.0.0
+paths:
+  /api/hashtag/{id}:
+    get:
+      operationId: hashtag_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hashtag'
+  /api/hashtags:
+    get:
+      operationId: hashtags_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Hashtag_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Hashtag_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hashtag'
+  /api/tag/{id}:
+    get:
+      operationId: tag_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+  /api/tags:
+    get:
+      operationId: tags_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Tag_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Tag_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+  /api/publisher/{id}:
+    get:
+      operationId: publisher_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publisher'
+  /api/publishers:
+    get:
+      operationId: publishers_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Publisher_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Publisher_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Publisher'
+  /api/owner/{id}:
+    get:
+      operationId: owner_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Owner'
+  /api/owners:
+    get:
+      operationId: owners_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Owner_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Owner_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Owner'
+  /api/tagger/{id}:
+    get:
+      operationId: tagger_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tagger'
+  /api/taggers:
+    get:
+      operationId: taggers_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Tagger_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Tagger_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tagger'
+  /api/platform/{id}:
+    get:
+      operationId: platform_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Platform'
+  /api/platforms:
+    get:
+      operationId: platforms_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Platform_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Platform_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Platform'
+  /api/creator/{id}:
+    get:
+      operationId: creator_query
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Creator'
+  /api/creators:
+    get:
+      operationId: creators_query
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: first
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: orderBy
+          required: false
+          schema:
+            $ref: '#/components/schemas/Creator_orderBy'
+        - in: query
+          name: orderDirection
+          required: false
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
+        - in: query
+          name: where
+          required: false
+          schema:
+            $ref: '#/components/schemas/Creator_filter'
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Creator'
+  /api/meta:
+    get:
+      operationId: _meta_query
+      parameters:
+        - in: query
+          name: block
+          required: false
+          schema:
+            $ref: '#/components/schemas/Block_height'
+      responses:
+        '200':
+          description: Access to subgraph metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/_Meta_'
+components:
+  schemas:
+    Block_height:
+      type: object
+      properties:
+        hash:
+          type: object
+        number:
+          type: integer
+          format: int32
+    Creator:
+      type: object
+      required:
+        - id
+        - mintCount
+        - tagCount
+        - tagFees
+      properties:
+        id:
+          type: string
+        mintCount:
+          type: object
+        tagCount:
+          type: object
+        tagFees:
+          type: object
+    Creator_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        mintCount:
+          type: object
+        mintCount_not:
+          type: object
+        mintCount_gt:
+          type: object
+        mintCount_lt:
+          type: object
+        mintCount_gte:
+          type: object
+        mintCount_lte:
+          type: object
+        mintCount_in:
+          type: array
+          items:
+            type: object
+        mintCount_not_in:
+          type: array
+          items:
+            type: object
+        tagCount:
+          type: object
+        tagCount_not:
+          type: object
+        tagCount_gt:
+          type: object
+        tagCount_lt:
+          type: object
+        tagCount_gte:
+          type: object
+        tagCount_lte:
+          type: object
+        tagCount_in:
+          type: array
+          items:
+            type: object
+        tagCount_not_in:
+          type: array
+          items:
+            type: object
+        tagFees:
+          type: object
+        tagFees_not:
+          type: object
+        tagFees_gt:
+          type: object
+        tagFees_lt:
+          type: object
+        tagFees_gte:
+          type: object
+        tagFees_lte:
+          type: object
+        tagFees_in:
+          type: array
+          items:
+            type: object
+        tagFees_not_in:
+          type: array
+          items:
+            type: object
+    Hashtag:
+      type: object
+      required:
+        - id
+        - name
+        - displayHashtag
+        - hashtag
+        - hashtagWithoutHash
+        - owner
+        - creator
+        - publisher
+        - timestamp
+        - tagCount
+        - ownerRevenue
+        - publisherRevenue
+        - protocolRevenue
+        - creatorRevenue
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        displayHashtag:
+          type: string
+        hashtag:
+          type: string
+        hashtagWithoutHash:
+          type: string
+        owner:
+          type: object
+        creator:
+          type: object
+        publisher:
+          type: object
+        timestamp:
+          type: object
+        tagCount:
+          type: object
+        ownerRevenue:
+          type: object
+        publisherRevenue:
+          type: object
+        protocolRevenue:
+          type: object
+        creatorRevenue:
+          type: object
+    Hashtag_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        name_not:
+          type: string
+        name_gt:
+          type: string
+        name_lt:
+          type: string
+        name_gte:
+          type: string
+        name_lte:
+          type: string
+        name_in:
+          type: array
+          items:
+            type: string
+        name_not_in:
+          type: array
+          items:
+            type: string
+        name_contains:
+          type: string
+        name_not_contains:
+          type: string
+        name_starts_with:
+          type: string
+        name_not_starts_with:
+          type: string
+        name_ends_with:
+          type: string
+        name_not_ends_with:
+          type: string
+        displayHashtag:
+          type: string
+        displayHashtag_not:
+          type: string
+        displayHashtag_gt:
+          type: string
+        displayHashtag_lt:
+          type: string
+        displayHashtag_gte:
+          type: string
+        displayHashtag_lte:
+          type: string
+        displayHashtag_in:
+          type: array
+          items:
+            type: string
+        displayHashtag_not_in:
+          type: array
+          items:
+            type: string
+        displayHashtag_contains:
+          type: string
+        displayHashtag_not_contains:
+          type: string
+        displayHashtag_starts_with:
+          type: string
+        displayHashtag_not_starts_with:
+          type: string
+        displayHashtag_ends_with:
+          type: string
+        displayHashtag_not_ends_with:
+          type: string
+        hashtag:
+          type: string
+        hashtag_not:
+          type: string
+        hashtag_gt:
+          type: string
+        hashtag_lt:
+          type: string
+        hashtag_gte:
+          type: string
+        hashtag_lte:
+          type: string
+        hashtag_in:
+          type: array
+          items:
+            type: string
+        hashtag_not_in:
+          type: array
+          items:
+            type: string
+        hashtag_contains:
+          type: string
+        hashtag_not_contains:
+          type: string
+        hashtag_starts_with:
+          type: string
+        hashtag_not_starts_with:
+          type: string
+        hashtag_ends_with:
+          type: string
+        hashtag_not_ends_with:
+          type: string
+        hashtagWithoutHash:
+          type: string
+        hashtagWithoutHash_not:
+          type: string
+        hashtagWithoutHash_gt:
+          type: string
+        hashtagWithoutHash_lt:
+          type: string
+        hashtagWithoutHash_gte:
+          type: string
+        hashtagWithoutHash_lte:
+          type: string
+        hashtagWithoutHash_in:
+          type: array
+          items:
+            type: string
+        hashtagWithoutHash_not_in:
+          type: array
+          items:
+            type: string
+        hashtagWithoutHash_contains:
+          type: string
+        hashtagWithoutHash_not_contains:
+          type: string
+        hashtagWithoutHash_starts_with:
+          type: string
+        hashtagWithoutHash_not_starts_with:
+          type: string
+        hashtagWithoutHash_ends_with:
+          type: string
+        hashtagWithoutHash_not_ends_with:
+          type: string
+        owner:
+          type: object
+        owner_not:
+          type: object
+        owner_in:
+          type: array
+          items:
+            type: object
+        owner_not_in:
+          type: array
+          items:
+            type: object
+        owner_contains:
+          type: object
+        owner_not_contains:
+          type: object
+        creator:
+          type: object
+        creator_not:
+          type: object
+        creator_in:
+          type: array
+          items:
+            type: object
+        creator_not_in:
+          type: array
+          items:
+            type: object
+        creator_contains:
+          type: object
+        creator_not_contains:
+          type: object
+        publisher:
+          type: object
+        publisher_not:
+          type: object
+        publisher_in:
+          type: array
+          items:
+            type: object
+        publisher_not_in:
+          type: array
+          items:
+            type: object
+        publisher_contains:
+          type: object
+        publisher_not_contains:
+          type: object
+        timestamp:
+          type: object
+        timestamp_not:
+          type: object
+        timestamp_gt:
+          type: object
+        timestamp_lt:
+          type: object
+        timestamp_gte:
+          type: object
+        timestamp_lte:
+          type: object
+        timestamp_in:
+          type: array
+          items:
+            type: object
+        timestamp_not_in:
+          type: array
+          items:
+            type: object
+        tagCount:
+          type: object
+        tagCount_not:
+          type: object
+        tagCount_gt:
+          type: object
+        tagCount_lt:
+          type: object
+        tagCount_gte:
+          type: object
+        tagCount_lte:
+          type: object
+        tagCount_in:
+          type: array
+          items:
+            type: object
+        tagCount_not_in:
+          type: array
+          items:
+            type: object
+        ownerRevenue:
+          type: object
+        ownerRevenue_not:
+          type: object
+        ownerRevenue_gt:
+          type: object
+        ownerRevenue_lt:
+          type: object
+        ownerRevenue_gte:
+          type: object
+        ownerRevenue_lte:
+          type: object
+        ownerRevenue_in:
+          type: array
+          items:
+            type: object
+        ownerRevenue_not_in:
+          type: array
+          items:
+            type: object
+        publisherRevenue:
+          type: object
+        publisherRevenue_not:
+          type: object
+        publisherRevenue_gt:
+          type: object
+        publisherRevenue_lt:
+          type: object
+        publisherRevenue_gte:
+          type: object
+        publisherRevenue_lte:
+          type: object
+        publisherRevenue_in:
+          type: array
+          items:
+            type: object
+        publisherRevenue_not_in:
+          type: array
+          items:
+            type: object
+        protocolRevenue:
+          type: object
+        protocolRevenue_not:
+          type: object
+        protocolRevenue_gt:
+          type: object
+        protocolRevenue_lt:
+          type: object
+        protocolRevenue_gte:
+          type: object
+        protocolRevenue_lte:
+          type: object
+        protocolRevenue_in:
+          type: array
+          items:
+            type: object
+        protocolRevenue_not_in:
+          type: array
+          items:
+            type: object
+        creatorRevenue:
+          type: object
+        creatorRevenue_not:
+          type: object
+        creatorRevenue_gt:
+          type: object
+        creatorRevenue_lt:
+          type: object
+        creatorRevenue_gte:
+          type: object
+        creatorRevenue_lte:
+          type: object
+        creatorRevenue_in:
+          type: array
+          items:
+            type: object
+        creatorRevenue_not_in:
+          type: array
+          items:
+            type: object
+    Owner:
+      type: object
+      required:
+        - id
+        - mintCount
+        - tagCount
+        - tagFees
+      properties:
+        id:
+          type: string
+        mintCount:
+          type: object
+        tagCount:
+          type: object
+        tagFees:
+          type: object
+    Owner_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        mintCount:
+          type: object
+        mintCount_not:
+          type: object
+        mintCount_gt:
+          type: object
+        mintCount_lt:
+          type: object
+        mintCount_gte:
+          type: object
+        mintCount_lte:
+          type: object
+        mintCount_in:
+          type: array
+          items:
+            type: object
+        mintCount_not_in:
+          type: array
+          items:
+            type: object
+        tagCount:
+          type: object
+        tagCount_not:
+          type: object
+        tagCount_gt:
+          type: object
+        tagCount_lt:
+          type: object
+        tagCount_gte:
+          type: object
+        tagCount_lte:
+          type: object
+        tagCount_in:
+          type: array
+          items:
+            type: object
+        tagCount_not_in:
+          type: array
+          items:
+            type: object
+        tagFees:
+          type: object
+        tagFees_not:
+          type: object
+        tagFees_gt:
+          type: object
+        tagFees_lt:
+          type: object
+        tagFees_gte:
+          type: object
+        tagFees_lte:
+          type: object
+        tagFees_in:
+          type: array
+          items:
+            type: object
+        tagFees_not_in:
+          type: array
+          items:
+            type: object
+    Platform:
+      type: object
+      required:
+        - id
+        - tagFees
+      properties:
+        id:
+          type: string
+        tagFees:
+          type: object
+    Platform_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        tagFees:
+          type: object
+        tagFees_not:
+          type: object
+        tagFees_gt:
+          type: object
+        tagFees_lt:
+          type: object
+        tagFees_gte:
+          type: object
+        tagFees_lte:
+          type: object
+        tagFees_in:
+          type: array
+          items:
+            type: object
+        tagFees_not_in:
+          type: array
+          items:
+            type: object
+    Publisher:
+      type: object
+      required:
+        - id
+        - mintCount
+        - tagCount
+        - tagFees
+      properties:
+        id:
+          type: string
+        mintCount:
+          type: object
+        tagCount:
+          type: object
+        tagFees:
+          type: object
+    Publisher_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        mintCount:
+          type: object
+        mintCount_not:
+          type: object
+        mintCount_gt:
+          type: object
+        mintCount_lt:
+          type: object
+        mintCount_gte:
+          type: object
+        mintCount_lte:
+          type: object
+        mintCount_in:
+          type: array
+          items:
+            type: object
+        mintCount_not_in:
+          type: array
+          items:
+            type: object
+        tagCount:
+          type: object
+        tagCount_not:
+          type: object
+        tagCount_gt:
+          type: object
+        tagCount_lt:
+          type: object
+        tagCount_gte:
+          type: object
+        tagCount_lte:
+          type: object
+        tagCount_in:
+          type: array
+          items:
+            type: object
+        tagCount_not_in:
+          type: array
+          items:
+            type: object
+        tagFees:
+          type: object
+        tagFees_not:
+          type: object
+        tagFees_gt:
+          type: object
+        tagFees_lt:
+          type: object
+        tagFees_gte:
+          type: object
+        tagFees_lte:
+          type: object
+        tagFees_in:
+          type: array
+          items:
+            type: object
+        tagFees_not_in:
+          type: array
+          items:
+            type: object
+    Query:
+      type: object
+      required:
+        - hashtags
+        - tags
+        - publishers
+        - owners
+        - taggers
+        - platforms
+        - creators
+      properties:
+        hashtag:
+          $ref: '#/components/schemas/Hashtag'
+        hashtags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hashtag'
+        tag:
+          $ref: '#/components/schemas/Tag'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        publisher:
+          $ref: '#/components/schemas/Publisher'
+        publishers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Publisher'
+        owner:
+          $ref: '#/components/schemas/Owner'
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Owner'
+        tagger:
+          $ref: '#/components/schemas/Tagger'
+        taggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tagger'
+        platform:
+          $ref: '#/components/schemas/Platform'
+        platforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Platform'
+        creator:
+          $ref: '#/components/schemas/Creator'
+        creators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Creator'
+        _meta:
+          $ref: '#/components/schemas/_Meta_'
+          description: Access to subgraph metadata
+    Subscription:
+      type: object
+      required:
+        - hashtags
+        - tags
+        - publishers
+        - owners
+        - taggers
+        - platforms
+        - creators
+      properties:
+        hashtag:
+          $ref: '#/components/schemas/Hashtag'
+        hashtags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hashtag'
+        tag:
+          $ref: '#/components/schemas/Tag'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        publisher:
+          $ref: '#/components/schemas/Publisher'
+        publishers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Publisher'
+        owner:
+          $ref: '#/components/schemas/Owner'
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Owner'
+        tagger:
+          $ref: '#/components/schemas/Tagger'
+        taggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tagger'
+        platform:
+          $ref: '#/components/schemas/Platform'
+        platforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Platform'
+        creator:
+          $ref: '#/components/schemas/Creator'
+        creators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Creator'
+        _meta:
+          $ref: '#/components/schemas/_Meta_'
+          description: Access to subgraph metadata
+    Tag:
+      type: object
+      required:
+        - id
+        - hashtagId
+        - hashtagDisplayHashtag
+        - hashtag
+        - hashtagWithoutHash
+        - nftContract
+        - nftId
+        - nftContractName
+        - tagger
+        - timestamp
+        - publisher
+      properties:
+        id:
+          type: string
+        hashtagId:
+          type: string
+        hashtagDisplayHashtag:
+          type: string
+        hashtag:
+          type: string
+        hashtagWithoutHash:
+          type: string
+        nftContract:
+          type: object
+        nftId:
+          type: string
+        nftContractName:
+          type: string
+        nftTokenUri:
+          type: string
+        nftName:
+          type: string
+        nftDescription:
+          type: string
+        nftImage:
+          type: string
+        tagger:
+          type: object
+        timestamp:
+          type: object
+        publisher:
+          type: object
+    Tag_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        hashtagId:
+          type: string
+        hashtagId_not:
+          type: string
+        hashtagId_gt:
+          type: string
+        hashtagId_lt:
+          type: string
+        hashtagId_gte:
+          type: string
+        hashtagId_lte:
+          type: string
+        hashtagId_in:
+          type: array
+          items:
+            type: string
+        hashtagId_not_in:
+          type: array
+          items:
+            type: string
+        hashtagId_contains:
+          type: string
+        hashtagId_not_contains:
+          type: string
+        hashtagId_starts_with:
+          type: string
+        hashtagId_not_starts_with:
+          type: string
+        hashtagId_ends_with:
+          type: string
+        hashtagId_not_ends_with:
+          type: string
+        hashtagDisplayHashtag:
+          type: string
+        hashtagDisplayHashtag_not:
+          type: string
+        hashtagDisplayHashtag_gt:
+          type: string
+        hashtagDisplayHashtag_lt:
+          type: string
+        hashtagDisplayHashtag_gte:
+          type: string
+        hashtagDisplayHashtag_lte:
+          type: string
+        hashtagDisplayHashtag_in:
+          type: array
+          items:
+            type: string
+        hashtagDisplayHashtag_not_in:
+          type: array
+          items:
+            type: string
+        hashtagDisplayHashtag_contains:
+          type: string
+        hashtagDisplayHashtag_not_contains:
+          type: string
+        hashtagDisplayHashtag_starts_with:
+          type: string
+        hashtagDisplayHashtag_not_starts_with:
+          type: string
+        hashtagDisplayHashtag_ends_with:
+          type: string
+        hashtagDisplayHashtag_not_ends_with:
+          type: string
+        hashtag:
+          type: string
+        hashtag_not:
+          type: string
+        hashtag_gt:
+          type: string
+        hashtag_lt:
+          type: string
+        hashtag_gte:
+          type: string
+        hashtag_lte:
+          type: string
+        hashtag_in:
+          type: array
+          items:
+            type: string
+        hashtag_not_in:
+          type: array
+          items:
+            type: string
+        hashtag_contains:
+          type: string
+        hashtag_not_contains:
+          type: string
+        hashtag_starts_with:
+          type: string
+        hashtag_not_starts_with:
+          type: string
+        hashtag_ends_with:
+          type: string
+        hashtag_not_ends_with:
+          type: string
+        hashtagWithoutHash:
+          type: string
+        hashtagWithoutHash_not:
+          type: string
+        hashtagWithoutHash_gt:
+          type: string
+        hashtagWithoutHash_lt:
+          type: string
+        hashtagWithoutHash_gte:
+          type: string
+        hashtagWithoutHash_lte:
+          type: string
+        hashtagWithoutHash_in:
+          type: array
+          items:
+            type: string
+        hashtagWithoutHash_not_in:
+          type: array
+          items:
+            type: string
+        hashtagWithoutHash_contains:
+          type: string
+        hashtagWithoutHash_not_contains:
+          type: string
+        hashtagWithoutHash_starts_with:
+          type: string
+        hashtagWithoutHash_not_starts_with:
+          type: string
+        hashtagWithoutHash_ends_with:
+          type: string
+        hashtagWithoutHash_not_ends_with:
+          type: string
+        nftContract:
+          type: object
+        nftContract_not:
+          type: object
+        nftContract_in:
+          type: array
+          items:
+            type: object
+        nftContract_not_in:
+          type: array
+          items:
+            type: object
+        nftContract_contains:
+          type: object
+        nftContract_not_contains:
+          type: object
+        nftId:
+          type: string
+        nftId_not:
+          type: string
+        nftId_gt:
+          type: string
+        nftId_lt:
+          type: string
+        nftId_gte:
+          type: string
+        nftId_lte:
+          type: string
+        nftId_in:
+          type: array
+          items:
+            type: string
+        nftId_not_in:
+          type: array
+          items:
+            type: string
+        nftId_contains:
+          type: string
+        nftId_not_contains:
+          type: string
+        nftId_starts_with:
+          type: string
+        nftId_not_starts_with:
+          type: string
+        nftId_ends_with:
+          type: string
+        nftId_not_ends_with:
+          type: string
+        nftContractName:
+          type: string
+        nftContractName_not:
+          type: string
+        nftContractName_gt:
+          type: string
+        nftContractName_lt:
+          type: string
+        nftContractName_gte:
+          type: string
+        nftContractName_lte:
+          type: string
+        nftContractName_in:
+          type: array
+          items:
+            type: string
+        nftContractName_not_in:
+          type: array
+          items:
+            type: string
+        nftContractName_contains:
+          type: string
+        nftContractName_not_contains:
+          type: string
+        nftContractName_starts_with:
+          type: string
+        nftContractName_not_starts_with:
+          type: string
+        nftContractName_ends_with:
+          type: string
+        nftContractName_not_ends_with:
+          type: string
+        nftTokenUri:
+          type: string
+        nftTokenUri_not:
+          type: string
+        nftTokenUri_gt:
+          type: string
+        nftTokenUri_lt:
+          type: string
+        nftTokenUri_gte:
+          type: string
+        nftTokenUri_lte:
+          type: string
+        nftTokenUri_in:
+          type: array
+          items:
+            type: string
+        nftTokenUri_not_in:
+          type: array
+          items:
+            type: string
+        nftTokenUri_contains:
+          type: string
+        nftTokenUri_not_contains:
+          type: string
+        nftTokenUri_starts_with:
+          type: string
+        nftTokenUri_not_starts_with:
+          type: string
+        nftTokenUri_ends_with:
+          type: string
+        nftTokenUri_not_ends_with:
+          type: string
+        nftName:
+          type: string
+        nftName_not:
+          type: string
+        nftName_gt:
+          type: string
+        nftName_lt:
+          type: string
+        nftName_gte:
+          type: string
+        nftName_lte:
+          type: string
+        nftName_in:
+          type: array
+          items:
+            type: string
+        nftName_not_in:
+          type: array
+          items:
+            type: string
+        nftName_contains:
+          type: string
+        nftName_not_contains:
+          type: string
+        nftName_starts_with:
+          type: string
+        nftName_not_starts_with:
+          type: string
+        nftName_ends_with:
+          type: string
+        nftName_not_ends_with:
+          type: string
+        nftDescription:
+          type: string
+        nftDescription_not:
+          type: string
+        nftDescription_gt:
+          type: string
+        nftDescription_lt:
+          type: string
+        nftDescription_gte:
+          type: string
+        nftDescription_lte:
+          type: string
+        nftDescription_in:
+          type: array
+          items:
+            type: string
+        nftDescription_not_in:
+          type: array
+          items:
+            type: string
+        nftDescription_contains:
+          type: string
+        nftDescription_not_contains:
+          type: string
+        nftDescription_starts_with:
+          type: string
+        nftDescription_not_starts_with:
+          type: string
+        nftDescription_ends_with:
+          type: string
+        nftDescription_not_ends_with:
+          type: string
+        nftImage:
+          type: string
+        nftImage_not:
+          type: string
+        nftImage_gt:
+          type: string
+        nftImage_lt:
+          type: string
+        nftImage_gte:
+          type: string
+        nftImage_lte:
+          type: string
+        nftImage_in:
+          type: array
+          items:
+            type: string
+        nftImage_not_in:
+          type: array
+          items:
+            type: string
+        nftImage_contains:
+          type: string
+        nftImage_not_contains:
+          type: string
+        nftImage_starts_with:
+          type: string
+        nftImage_not_starts_with:
+          type: string
+        nftImage_ends_with:
+          type: string
+        nftImage_not_ends_with:
+          type: string
+        tagger:
+          type: object
+        tagger_not:
+          type: object
+        tagger_in:
+          type: array
+          items:
+            type: object
+        tagger_not_in:
+          type: array
+          items:
+            type: object
+        tagger_contains:
+          type: object
+        tagger_not_contains:
+          type: object
+        timestamp:
+          type: object
+        timestamp_not:
+          type: object
+        timestamp_gt:
+          type: object
+        timestamp_lt:
+          type: object
+        timestamp_gte:
+          type: object
+        timestamp_lte:
+          type: object
+        timestamp_in:
+          type: array
+          items:
+            type: object
+        timestamp_not_in:
+          type: array
+          items:
+            type: object
+        publisher:
+          type: object
+        publisher_not:
+          type: object
+        publisher_in:
+          type: array
+          items:
+            type: object
+        publisher_not_in:
+          type: array
+          items:
+            type: object
+        publisher_contains:
+          type: object
+        publisher_not_contains:
+          type: object
+    Tagger:
+      type: object
+      required:
+        - id
+        - tagCount
+        - feesPaid
+      properties:
+        id:
+          type: string
+        tagCount:
+          type: object
+        feesPaid:
+          type: object
+    Tagger_filter:
+      type: object
+      properties:
+        id:
+          type: string
+        id_not:
+          type: string
+        id_gt:
+          type: string
+        id_lt:
+          type: string
+        id_gte:
+          type: string
+        id_lte:
+          type: string
+        id_in:
+          type: array
+          items:
+            type: string
+        id_not_in:
+          type: array
+          items:
+            type: string
+        tagCount:
+          type: object
+        tagCount_not:
+          type: object
+        tagCount_gt:
+          type: object
+        tagCount_lt:
+          type: object
+        tagCount_gte:
+          type: object
+        tagCount_lte:
+          type: object
+        tagCount_in:
+          type: array
+          items:
+            type: object
+        tagCount_not_in:
+          type: array
+          items:
+            type: object
+        feesPaid:
+          type: object
+        feesPaid_not:
+          type: object
+        feesPaid_gt:
+          type: object
+        feesPaid_lt:
+          type: object
+        feesPaid_gte:
+          type: object
+        feesPaid_lte:
+          type: object
+        feesPaid_in:
+          type: array
+          items:
+            type: object
+        feesPaid_not_in:
+          type: array
+          items:
+            type: object
+    _Block_:
+      type: object
+      required:
+        - number
+      properties:
+        hash:
+          type: object
+          description: The hash of the block
+        number:
+          type: integer
+          format: int32
+          description: The block number
+    _Meta_:
+      type: object
+      required:
+        - block
+        - deployment
+        - hasIndexingErrors
+      properties:
+        block:
+          $ref: '#/components/schemas/_Block_'
+          description: >
+            Information about a specific subgraph block. The hash of the block
+
+            will be null if the _meta field has a block constraint that asks for
+
+            a block number. It will be filled if the _meta field has no block
+            constraint
+
+            and therefore asks for the latest  block
+        deployment:
+          type: string
+          description: The deployment ID
+        hasIndexingErrors:
+          type: boolean
+          description: >-
+            If `true`, the subgraph encountered indexing errors at some past
+            block
+      description: The type for the top-level _meta field

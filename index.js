@@ -7,6 +7,9 @@ const { makeExecutableSchema } = require("@graphql-tools/schema");
 const fetch = require("node-fetch");
 const { createHttpLink } = require("apollo-link-http");
 const { print } = require("graphql");
+const swaggerUi = require('swagger-ui-express');
+YAML = require('yamljs');
+swaggerDocument = YAML.load('./swagger.yml');
 
 const executor = async ({ document, variables }) => {
   const query = print(document);
@@ -50,7 +53,9 @@ generateSchema().then((schema) => {
       },
     })
   );
+  
   openApi.save("./swagger.yml");
+  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   const port = process.env.PORT || 4000;
   app.listen(port, () => {
     console.log(`🚀  Server ready http://localhost:${port}`);
